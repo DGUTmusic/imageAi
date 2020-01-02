@@ -24,9 +24,9 @@ public class VerifyImage {
 
         JSONObject jsonResult = null;
         if (type == 0) {
-            //通用文字识别（高精度版含位置版）
+            //通用文字识别（高精度版）
             jsonResult = JSONObject.fromObject(HttpClientUtil.postKV(
-                    "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate?access_token=" + AccessToken.getToken(),
+                    "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token=" + AccessToken.getToken(),
                     param, Charsets.UTF_8, new BasicHeader("Content-Type", "application/x-www-form-urlencoded")));
         } else if (type == 1) {
             //车牌识别
