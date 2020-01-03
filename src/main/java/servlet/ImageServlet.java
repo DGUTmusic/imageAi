@@ -50,6 +50,13 @@ public class ImageServlet extends HttpServlet {
                     newName = request.getServletContext()
                             .getRealPath("/upload/images/") + fileName;
 
+                    //如果目录不存在
+                    File dir = new File(request.getServletContext()
+                            .getRealPath("/upload/images/"));
+                    if (!dir.exists()){
+                        dir.mkdirs();
+                    }
+
                     File file = new File(newName);
 
                     // 从缓冲区写入磁盘
