@@ -11,7 +11,7 @@
     <title>图片识别</title>
 </head>
 <body>
-<form action="/ImageAi/servlet/ImageServlet" method="post">
+<form action="/ImageAi/servlet/ImageServlet" method="post" enctype="multipart/form-data">
     图片选择：<input type="file" id="file"/>
     <br/>
     图片类型：<select name="type">

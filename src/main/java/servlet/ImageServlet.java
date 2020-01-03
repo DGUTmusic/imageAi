@@ -37,6 +37,7 @@ public class ImageServlet extends HttpServlet {
                     name = fileItem.getFieldName();// 获取属性的名字
                     if ("type".equals(name)) // 获取属性的值
                         type = Integer.parseInt(fileItem.getString("utf-8"));
+                    System.out.println(type);
                 } else {
                     // 是文件
 

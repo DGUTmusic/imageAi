@@ -100,7 +100,7 @@ public class VerifyImage {
             // 将下面一行，表示进行图片文字识别
             JSONObject jsonObject = imageShow(fileByte, type);
 
-            System.out.println("图片识别返回结果：" + jsonObject);
+            System.out.println(jsonObject);
             return jsonObject;
         } catch (Exception e) {
             e.printStackTrace();
