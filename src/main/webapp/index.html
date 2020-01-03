@@ -98,7 +98,7 @@
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log(data.words_result)
+                // console.log(data)
                 $('#myPicture').html('<img id=\"yourPicture\" src=\"/ImageAi/'+data.image_src+'" class=\"rounded mx-auto d-block\" alt=\"图片\">');
                 // $('#numbers').html('识别的号码为：<strong><span class="alert-heading">'+data.words_result[0].words+'</span></strong>')
                 // $('#color').html('颜色为：<strong><span class="alert-heading"></span></strong>')
@@ -112,12 +112,19 @@
 
     function showResult(data, type) {
         if (type === "0"){
-            $('#numbers').html('识别的文字为：<strong><span class="alert-heading">'+data.words_result[0].words+'</span></strong>')
+            $('#numbers').html("识别的文字为：");
+            $('#numbers').append('<strong><span class="alert-heading">');
+            for(i=0; i<data.words_result.length; i++) {
+                $('#numbers').append(data.words_result[i].words+ " ")
+            }
+            $('#numbers').append("</span></strong>");
+            $('#color').html('<strong><span class="alert-heading"></span></strong>')
         }else if (type === "1"){
             $('#numbers').html('识别的车牌号码为：<strong><span class="alert-heading">'+data.words_result[0].number+'</span></strong>')
             $('#color').html('颜色为：<strong><span class="alert-heading">'+data.words_result[0].color+'</span></strong>')
         }else if (type === "2"){
-            $('#numbers').html('识别的发票信息为：<strong><span class="alert-heading">'+data.words_result+'</span></strong>')
+            $('#numbers').html('识别的发票信息为：<strong><span class="alert-heading">'+JSON.stringify(data.words_result)+'</span></strong>')
+            $('#color').html('<strong><span class="alert-heading"></span></strong>')
         }else{
             $('#numbers').html('识别的身份证号码为：<strong><span class="alert-heading">'+data.words_result.公民身份号码.words+'</span></strong>')
             $('#color').html('姓名为：<strong><span class="alert-heading">'+data.words_result.姓名.words+'</span></strong>')
